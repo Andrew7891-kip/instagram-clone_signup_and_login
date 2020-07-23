@@ -1,0 +1,57 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Signup</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        {% include 'nav.html' %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src=" {% static 'image/phone.jpg' %} " class="phone" alt="">
+                    
+                </div>
+                <div class="col-sm-6">
+                    <div class="right-column text-center">
+                        <img src=" {% static 'image/insta-icon.png' %} " class="instagram-logo" alt="">
+                        <p class="info">Sign up to see photos and videos from your friends</p>
+                        <button type="submit" class="btn btn-primary btn-block" > <img src="" class="fb-logo" alt=""> Log in with Facebook</button>
+                        <p class="or">OR</p>
+                        <form action="" method="POST" >{% csrf_token %}  
+                            <div class="form-group">
+                                {{form|crispy}}
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block" >Sign up</button>
+                        </form>
+                        <p class="terms">By signing up, you agree to our <b> Terms,Data Policy </b> and <b>Cookies Policy</b> . </p>
+                    </div>
+                    <div class="right-column-login text-center">
+                        <p>Have an account? <a href=" {% url 'login' %} ">Login</a> </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
